@@ -1,0 +1,33 @@
+{
+  "name": "railtracks",
+  "version": "1.0.0",
+  "description": "An online mentorship platform, where students and metors can interaction through inbuilt communication function.",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon index.js",
+    "prod": "NODE_ENV=production nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamaaasif/RailTracks.git"
+  },
+  "author": "Abdulla Nur Faisal - 182400002, Fazle Rabbi - 182400009, Abdullah Al Asif - 182400045",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamaaasif/RailTracks/issues"
+  },
+  "homepage": "https://github.com/iamaaasif/RailTracks#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "http-errors": "^1.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.13",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.15"
+  }
+}

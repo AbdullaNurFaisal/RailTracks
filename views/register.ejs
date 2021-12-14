@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    <%= title %>
+  </title>
+
+  <link href="img/favicon.png" rel="shortcut icon" />
+
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css" />
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body class="body-wrapper">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-expand-lg navbar-light navigation">
+            <a class="navbar-brand" href="#">
+              <img src="images/logo.png" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto mt-10">
+                <li class="nav-item">
+                  <a class="nav-link login-button" href="/login">Offer Mentorship</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="login py-5 border-top-1">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8 align-item-center">
+          <div class="border">
+            <h3 class="bg-gray p-4">Register</h3>
+            <form method="post" action="/register">
+              <fieldset class="p-4">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name"
+                  class="border p-3 w-100 my-2" />
+                <% if (errors.firstName) { %>
+                  <div class="alert alert-danger" role="alert">
+                    <p class="error show">
+                      <%= errors.firstName.msg %>
+                    </p>
+                  </div>
+
+                  <% } %>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name"
+                      class="border p-3 w-100 my-2" />
+
+                    <% if (errors.lastName) { %>
+                      <div class="alert alert-danger" role="alert">
+                        <p class="error show">
+                          <%= errors.lastName.msg %>
+                        </p>
+                      </div>
+
+                      <% } %>
+
+                        <input type="email" name="email" id="email" placeholder="Email*"
+                          class="border p-3 w-100 my-2" />
+                          <% if (errors.email) { %>
+                        <div class="alert alert-danger" role="alert">
+                          
+                            <p class="error show">
+                              <%= errors.email.msg %>
+                            </p>
+                           
+                        </div>
+                        <% } %>
+
+                        <input type="password" name="password" id="password" placeholder="Password*"
+                          class="border p-3 w-100 my-2" />
+                          <% if (errors.password) { %>
+                        <div class="alert alert-danger" role="alert">
+                        
+                            <p class="error show">
+                              <%= errors.password.msg %>
+                            </p>
+                           
+                        </div>
+                        <% } %>
+
+                        <input type="password" name="confirmPassword" id="confirmPassword"
+                          placeholder="Confirm Password*" class="border p-3 w-100 my-2" />
+                          <% if (errors.confirmPassword) { %>
+
+                        <div class="alert alert-danger" role="alert">
+                            <p class="error show">
+                              <%= errors.confirmPassword.msg %>
+                            </p>
+                        </div>
+                        <% } %>
+
+                        <% if (errors.common) { %>
+
+                        <div class="alert alert-danger" role="alert">
+                            <p class="error show">
+                              <%= errors.common.msg %>
+                            </p>
+                        </div>
+                        <% } %>
+
+
+                        <p>
+                          By clicking register, you are accepting our
+                          <a class="terms" href="terms-condition.html">Terms and Conditions</a>
+                        </p>
+                        <button type="submit" class="
+                      d-block
+                      py-3
+                      px-5
+                      bg-primary
+                      text-white
+                      border-0
+                      rounded
+                      font-weight-bold
+                      mt-3
+                    ">
+                          Register
+                        </button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Copyright © 2021 RailTracks</p>
+  </footer>
+
+  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
