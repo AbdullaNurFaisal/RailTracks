@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // internal imports
-const { getLandingPage, getBlogPage, getCreateBlogPage, getViewBlog} = require("../controller/landingController");
+const { getLandingPage } = require("../controller/landingController");
 const {
   login,
   logout,
@@ -27,10 +27,14 @@ router.get(
   checkLoginForLandingPage,
   getLandingPage
 );
-router.get("/blogs", decorateHtmlResponse("Blogs"), getBlogPage);
-router.get("/createBlog", decorateHtmlResponse("CreateBlog"), getCreateBlogPage);
-router.get("/viewBlog", decorateHtmlResponse("viewBlog"), getViewBlog);
+
+// router.get("/blogs", decorateHtmlResponse("Blogs"), getBlogPage);
+// router.get(
+//   "/createBlog",
+//   decorateHtmlResponse("CreateBlog"),
+//   getCreateBlogPage
+// );
+// router.get("/viewBlog", decorateHtmlResponse("viewBlog"), getViewBlog);
 // logout
 router.delete("/", logout);
 module.exports = router;
-

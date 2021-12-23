@@ -26,9 +26,8 @@
     />
 
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-
 <script>
+  //  window.location.replace("/");
    function logout() {
         fetch("/", {
           method: "DELETE",
@@ -41,11 +40,11 @@
 
   </head>
 
-  <body class="bg-dark">
+  <body class="bg-blue">
 
    
     <!-- Nav bar -->
-    <section>
+    <section class="nav-header">
       <nav
         id="navtop"
         class="
@@ -71,7 +70,6 @@
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto">
-              <p><%= loggedInUser.lastName %> </p>
               <% if (loggedInUser && loggedInUser.email) { %>
               <a
                 href="#"
@@ -79,10 +77,11 @@
                 aria-current="page"
                 >Home</a
               >
-              <a href="#" class="nav-item nav-link">Profile(<%= loggedInUser.lastName %> )</a>
-              <a href="#" class="nav-item nav-link">Messages</a>
-              <a href="#" class="nav-item nav-link">Blogs</a>
-              <a href="#" onclick="logout()" class="nav-item nav-link">Log Out</a>
+              
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.firstName %>  <%= loggedInUser.lastName %> </a>
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
+              <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
               <% } else { %>
               <a class="nav-link login-button" href="/login"
                 >Offer Mentorship</a
@@ -97,4 +96,3 @@
     </section>
   
     <!-- nav bar end -->
-

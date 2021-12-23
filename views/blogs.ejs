@@ -1,181 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= title %></title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+    <!-- Title -->
+    <title> Blogs </title>
 
-    <link
-      href="plugins/font-awesome/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <link href="css/style.css" rel="stylesheet" />
-<script>
-  //  window.location.replace("/");
-   function logout() {
-        fetch("/", {
-          method: "DELETE",
-        });
-        setTimeout(() => {
-          window.location.replace("/");
-        }, 1000);
-      }
-</script>
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/all.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/elegant-font-icons.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/owl.carousel.css">
 
-  </head>
+    <!-- main style -->
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/style.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/custom.css">
+    <link href="/css/style.css" rel="stylesheet" />
 
-  <body>
+    <script>
+        //  window.location.replace("/");
+         function logout() {
+              fetch("/", {
+                method: "DELETE",
+              });
+              setTimeout(() => {
+                window.location.replace("/");
+              }, 1000);
+            }
+      </script>
+</head>
+
+<body>  
+    <!--loading -->
+    <div class="loading">
+        <div class="circle"></div>
+    </div>
+    <!--/-->
+    
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <!--logo-->
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="" class="logo-dark">
+                    <img src="/images/logo.png" alt="" class="logo-white">
+                </a>
+            </div>
+            <!--/-->
+    
+            <!--navbar-collapse-->
+           
+            <!--/-->
+    
+            <!--navbar-right-->
+            <div class="navbar-right ml-auto">
+                <div class="collapse navbar-collapse" id="main_nav">
+                    <ul class="navbar-nav ml-auto mr-auto">
+                        <% if (loggedInUser && loggedInUser.email) { %>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile"> Profile </a>
+        
+                        </li>
+        
+                        <li class="nav-item ">
+                            <a class="nav-link " href="/blog/createBlog"> Create Blog </a>
+                
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link " onclick="logout()"> Log Out </a>
+                
+                        </li>
+                        <% } else { %>
+                            <a class="nav-link login-button" href="/login"
+                            >Offer Mentorship</a
+                          >
+              
+                          <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+                          <% } %>
+                       
+                    </ul>
+                </div>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!--mansory-layout-->
+    <section class="masonry-layout col2-layout mt-30" style="margin-top: 150px;" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 mt--10 ">
+                    <!--cards-->
+                    <div class="card-columns" id="blog_container">
+
+
+                        <!--Post-1-->
+                        <div class="card">
+                            <div class="post-card">
+                            <div class="post-card-image">
+                                <a href="post-default.html">
+                                    <img src="https://noonpost.netlify.app/html/template/assets/img/blog/27.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="post-card-content">
+                                <h5><a href="post-default.html">20+ Cute Girly Outfits to Buy for the First Day of Winter</a> </h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Odit quam atque ipsa laborum sunt distinctio...
+                                </p>
+                                <div class="post-card-info">
+                                    <ul class="list-inline">
+                                        <li>
+                                            Written by David Smith</a>
+                                        </li>
+                                        <li class="dot"></li>
+                                        <li>January 15, 2021</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div><!--/-->
+                        </div>
+                        <!--Post-2-->
+                        <div class="card">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="post-default.html">
+                                        <img src="https://noonpost.netlify.app/html/template/assets/img/blog/16.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5>
+                                        <a href="post-default.html">Top 10 Fashion Trends from Spring/Summer 2021 Fashion Weeks</a>
+                                    </h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...
+                                    </p>
+                                    <div class="post-card-info">
+                                        <ul class="list-inline">
+                                            
+                                            <li>
+                                               Written by David Smith
+                                            </li>
+                                            <li class="dot"></li>
+                                            <li>January 15, 2021</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/-->
+                        </div>
+                       
+                        
+
+                       
+                       
+                    </div>
+
+                    <!--pagination-->
+                    <!-- <div class="pagination mt-30">
+                        <ul class="list-inline">
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="arrow_carrot-2right"></i>
+                                </a>
+                            </li>
+                        </ul> 
+                    </div>/ -->
+                </div>
+                <div class="col-lg-4 max-width">
+                    <!--widget-latest-posts-->
+                    <div class="widget ">
+                        <div class="section-title">
+                            <h5>Latest Posts</h5>
+                        </div>
+                        <ul class="widget-latest-posts" id="latest_post">
+                           
+                           
+                            <li class="last-post">
+                                <div class="image">
+                                    <a href="post-default.html">
+                                        <img src="assets/img/latest/4.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="nb">4</div>
+                                <div class="content">
+                                    <p>
+                                        <a href="post-default.html">10 Best and Most Beautiful Places to Visit in Italy</a>
+                                    </p>
+                                    <small>
+                                        <span class="icon_clock_alt"></span> January 15, 2021</small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/-->
+                    
+                </div>
+            </div>
+        </div>
+    </section><!--/-->
+  
+   
+    <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white bg-black">
+        <div class="container text-center">
+          <small>Copyright &copy; RailTracks</small>
+        </div>
+      </footer>
+  
 
    
-    <!-- Nav bar -->
-     <section class="nav-header">
-      <nav
-        id="navtop"
-        class="
-          navbar navbar-expand-lg
-          bg-white
-          navbar-light
-          navigation
-          fixed-top
-        "
-      >
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="RailTracks" />
-          </a>
-          <button
-            type="button"
-            class="navbar-toggler"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto">
-              <% if (loggedInUser && loggedInUser.email) { %>
-              <a
-                href="#"
-                class="nav-item nav-link active d-none"
-                aria-current="page"
-                >Home</a
-              >
-               <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Profile(<%= loggedInUser.lastName %> )</a>
-              
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.lastName %> </a>
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
-              <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
-              <% } else { %>
-              <a class="nav-link login-button" href="/login"
-                >Offer Mentorship</a
-              >
-
-              <a class="nav-link text-white add-button" href="#">Find Mentor</a>
-              <% } %>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
-    <section class="blogs">
-        <div class="blogs-main">
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-            <div class="blog">
-                <h3>Dec 14, 2021</h3>
-                <img src="images/home/bg_img.jpg" alt="">
-                <a href="#"><h1>Lorem ipsum dolor sit amet.</h1></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus eligendi repellendus ea veritatis, reprehenderit a dolore atque possimus minus...</p>
-            </div>
-        </div>
-        <div class="blogs-side">
-          <h2>Recent posts</h2>
-          <div class="blog-side-link">
-            <a href="#">Lorem ipsum dolor sit amet...</a>
-          </div>
-          <div class="blog-side-link">
-            <a href="#">Lorem ipsum dolor sit amet...</a>
-          </div>
-          <div class="blog-side-link">
-            <a href="#">Lorem ipsum dolor sit amet...</a>
-          </div>
-          <div class="blog-side-link">
-            <a href="#">Lorem ipsum dolor sit amet...</a>
-          </div>
-          <div class="blog-side-link">
-            <a href="#">Lorem ipsum dolor sit amet...</a>
-          </div>
-        </div>
-    </section>
-
+  
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://noonpost.netlify.app/html/template/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/popper.min.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/bootstrap.min.js"></script>
+    
+    <!-- JS Plugins  -->
+    <script src="https://noonpost.netlify.app/html/template/assets/js/ajax-contact.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/owl.carousel.min.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/switch.js"></script>
+    
+    <!-- JS main  -->
+    <script src="https://noonpost.netlify.app/html/template/assets/js/main.js"></script>
 
 
 
   <script>
+
+    //api
+  //  api fetch
+    let api_url = "http://localhost:3000/blog/api/v1/blogs";
+    async function getData(){
+      const response = await fetch(api_url);
+      const data = await response.json();
+      let html_data='';
+      let latest_data='';
+                     
+      for(let i = 0; i<data.length; i++)
+      {
+          let date = new Date(data[i].createdAt).toDateString();
+          if(i%2===0)
+          {
+              html_data+= `  <div class="card">
+                            <div class="post-card">
+                            <div class="post-card-image">
+                                <a href="/blog/viewBlog/${data[i].url}">
+                                    <img  src="/uploads/thumbnails/${data[i].thumbnail}" alt="">
+                                </a>
+                            </div>
+                            <div class="post-card-content">
+                                <h5><a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a> </h5>
+                                <p>${data[i].text.substring(0,Math.min(100,data[i].text.length/2))}....
+                                </p>
+                                <div class="post-card-info">
+                                    <ul class="list-inline">
+                                        <li>
+                                            Written by ${data[i].author_name}</a>
+                                        </li>
+                                        <li class="dot"></li>
+                                        <li>${date}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                        </div>`;
+          }
+          else
+          {
+              html_data+=` <div class="card">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="/blog/viewBlog/${data[i].url}">
+                                        <img  src="/uploads/thumbnails/${data[i].thumbnail}" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5><a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a> </h5>
+
+                                    <p>${data[i].text.substring(0,Math.min(100,data[i].text.length/2))}....
+                                </p>
+                                <div class="post-card-info">
+                                    <ul class="list-inline">
+                                        <li>
+                                            Written by ${data[i].author_name}</a>
+                                        </li>
+                                        <li class="dot"></li>
+                                        <li>${date}</li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                       `;
+          }
+
+          if(i<4)
+      {
+          latest_data+=`<li class="last-post">
+                                <div class="image">
+                                    <a href="/blog/viewBlog/${data[i].url}">
+                                        <img  src="/uploads/thumbnails/${data[i].thumbnail}" alt="">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <p>
+                                        <a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a>
+                                    </p>
+                                    <small>
+                                        ${date}</small>
+                                </div>
+                            </li>`;
+      }
+       
+      }
+
+    
+      console.log(html_data);
+      document.getElementById("blog_container").innerHTML = html_data;    
+      document.getElementById("latest_post").innerHTML = latest_data;         
+     
+    }
+    getData();
+
+
     /// on scrolling nav bar padding reduce
     window.onscroll = function () {
       scrollFunction();
@@ -193,7 +364,6 @@
     }
   </script>
 
-  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-  </body>
 
-  </html>
+</body>
+</html>

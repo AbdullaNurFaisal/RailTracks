@@ -10,6 +10,7 @@ const userHandler = require("./router/userHandler");
 const landingRouter = require("./router/landingRouter");
 const registrationRouter = require("./router/registrationRouter");
 const loginRouter = require("./router/loginRouter");
+const blogRouter = require("./router/blogRouter");
 const {
   notFoundHandler,
   errorHandler,
@@ -44,6 +45,7 @@ app.use("/", landingRouter);
 app.use("/register", registrationRouter);
 app.use("/login", loginRouter);
 app.use("/user", userHandler);
+app.use("/blog", blogRouter);
 
 // 404 not found handler
 app.use(notFoundHandler);

@@ -40,7 +40,7 @@
 
   </head>
 
-  <body class="bg-199">
+  <body class="bg-blue">
 
    
     <!-- Nav bar -->
@@ -77,18 +77,20 @@
                 aria-current="page"
                 >Home</a
               >
-              <!-- <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Profile(<%= loggedInUser.lastName %> )</a> -->
               
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.lastName %> </a>
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
+              <a href="/profile" class="btn-5 nav-item nav-link" style="color:black;" >Profile</a>
+              <!-- <a href="/message" class="btn-5 nav-item nav-link" style="color:black;">Messages</a> -->
+              <a href="/blog" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
               <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
               <% } else { %>
+                <a href="/blog" class="btn-5 nav-item nav-link login-button">Blogs</a>
+
               <a class="nav-link login-button" href="/login"
                 >Offer Mentorship</a
               >
 
               <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+
               <% } %>
             </div>
           </div>

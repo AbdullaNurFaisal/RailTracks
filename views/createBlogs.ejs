@@ -18,14 +18,14 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css" />
 
     <link
-      href="plugins/font-awesome/css/font-awesome.min.css"
+      href="/plugins/font-awesome/css/font-awesome.min.css"
       rel="stylesheet"
     />
 
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
 <script>
   //  window.location.replace("/");
    function logout() {
@@ -57,7 +57,7 @@
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="RailTracks" />
+            <img src="/images/logo.png" alt="RailTracks" />
           </a>
           <button
             type="button"
@@ -77,11 +77,11 @@
                 aria-current="page"
                 >Home</a
               >
-               <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Profile(<%= loggedInUser.lastName %> )</a>
               
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.lastName %> </a>
+              <a href="/profile" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.firstName %>  <%= loggedInUser.lastName %> </a>
               <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
               <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
+              <a href="/blog/myBlogs" class="btn-5 nav-item nav-link" style="color:black;">My Blogs</a>
               <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
               <% } else { %>
               <a class="nav-link login-button" href="/login"
@@ -97,15 +97,27 @@
     </section>
     
 
-    <section class="create-blog">
-      <form class="blog-form">
-        <input type="text" name="" id="" placeholder="Enter Blog title">
-        <button class="blog-img-button">Choose background</button>
-        <textarea placeholder="Enter blog content"></textarea>
+    <section class="create-blog" style="margin-top: 85px;">
+      <form class="blog-form" encType="multipart/form-data"
+            method="POST" >
+        <input type="text" name="title" id="title" placeholder="Enter Blog title">
+        <input type="file" name="thumbnails" id="thumbnails">
+        <!-- <button class="blog-img-button">Choose background</button> -->
+        <textarea placeholder="Enter blog content" id="text" name="text"></textarea>
+        <input type="hidden" value="<%= loggedInUser.firstName %>  <%= loggedInUser.lastName %> " name="author_name" >
+        <input type="hidden" value="<%= loggedInUser.email %>" name="author_email" >
+
+
         <input type="submit" value="Submit">
       </form>
 
     </section>
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white">
+      <div class="container text-center">
+        <small>Copyright &copy; RailTracks</small>
+      </div>
+    </footer>
 
   <script>
     /// on scrolling nav bar padding reduce

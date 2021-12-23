@@ -1,79 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>
-    <%= title %>
-  </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
 
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+    <link
+      href="plugins/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
 
-  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+<script>
+  //  window.location.replace("/");
+   function logout() {
+        fetch("/", {
+          method: "DELETE",
+        });
+        setTimeout(() => {
+          window.location.replace("/");
+        }, 1000);
+      }
+</script>
 
-  <link href="css/style.css" rel="stylesheet" />
+  </head>
 
-  <script>
-    //  window.location.replace("/");
-    function logout() {
-      fetch("/", {
-        method: "DELETE",
-      });
-      setTimeout(() => {
-        window.location.replace("/");
-      }, 1000);
-    }
-  </script>
+  <body class="bg-gray">
 
-</head>
-
-<body>
-  <!-- Nav bar -->
-  <section>
-    <nav id="navtop" class="
+   
+    <!-- Nav bar -->
+    <section class="nav-header">
+      <nav
+        id="navtop"
+        class="
           navbar navbar-expand-lg
           bg-white
           navbar-light
           navigation
           fixed-top
-        ">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="images/logo.png" alt="RailTracks" />
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        "
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="RailTracks" />
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto">
-            <p>
-              <%= loggedInUser.lastName %>
-            </p>
-            <% if (loggedInUser && loggedInUser.email) { %>
-              <a href="#" class="nav-item nav-link active d-none" aria-current="page">Home</a>
-              <a href="#" class="nav-item nav-link">Profile(<%= loggedInUser.lastName %> )</a>
-              <a href="#" class="nav-item nav-link">Messages</a>
-              <a href="#" class="nav-item nav-link">Blogs</a>
-              <a href="#" onclick="logout()" class="nav-item nav-link">Log Out</a>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+              <% if (loggedInUser && loggedInUser.email) { %>
+              <a
+                href="#"
+                class="nav-item nav-link active d-none"
+                aria-current="page"
+                >Home</a
+              >
+              
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.firstName %>  <%= loggedInUser.lastName %> </a>
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
+              <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
               <% } else { %>
-                <a class="nav-link login-button" href="/login">Offer Mentorship</a>
+              <a class="nav-link login-button" href="/login"
+                >Offer Mentorship</a
+              >
 
-                <a class="nav-link text-white add-button" href="#">Find Mentor</a>
-                <% } %>
+              <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+              <% } %>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </section>
+      </nav>
+    </section>
 
   <div style="padding-top: 100px; margin-top: 50px; margin-bottom: 50px;">
    
@@ -144,7 +164,7 @@
         </section>
 
         <footer>
-          <p>Copyright © 2021 RailTracks</p>
+          <p style="margin-bottom: 0;">Copyright © 2021 RailTracks</p>
         </footer>
 
         <!-- JAVASCRIPTS -->

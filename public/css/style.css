@@ -4,11 +4,7 @@ body {
   line-height: 1.5;
   font-family: "Muli", sans-serif;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 .bg-image {
   background-image: url(../images/home/bg_img.jpg);
@@ -127,6 +123,7 @@ a:hover {
 }
 
 
+
 textarea.form-control {
   padding: 20px;
 }
@@ -159,7 +156,7 @@ textarea.form-control {
 .form-control .advance-search {
   color: #fff;
 }
-.bg-199{
+.bg-blue{
   background-color: #166198;
 }
 .bg-light {
@@ -175,9 +172,7 @@ textarea.form-control {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.nav-header {
-  margin-bottom: 100px;
-}
+
 .navigation {
   padding: 20px 0;
 }
@@ -405,3 +400,6 @@ input[type=submit] {
   margin-left: 250px;
   margin-top: 30px;
 }
+
+
+

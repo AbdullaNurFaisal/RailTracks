@@ -12,9 +12,11 @@ function errorHandler(err, req, res, next) {
     process.env.NODE_ENV === "development" ? err : { message: err.message };
   res.status(err.status || 500);
 
+  res.locals.html = true; // for testing
+
   if (res.locals.html) {
     // html response
-    res.render("error", {
+    res.render("404", {
       title: "Error Page",
     });
   } else {

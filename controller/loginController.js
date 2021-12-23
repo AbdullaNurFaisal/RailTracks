@@ -46,7 +46,6 @@ async function login(req, res, next) {
 
         // set logged in users local identifiers
         res.locals.loggedInUser = userObject;
-        // res.locals.isLoggedIn = true;
 
         res.redirect("/"); // after logged in , render home page
       } else {
